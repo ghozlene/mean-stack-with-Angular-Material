@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Post } from '../post.model';
+import { PostService } from '../post.service';
 
 
 @Component({
@@ -21,4 +22,7 @@ export class PostListComponent {
   // ];
   @Input() posts: Post[] = [];
 
+  constructor(private postService: PostService) {
+
+  }
 }
