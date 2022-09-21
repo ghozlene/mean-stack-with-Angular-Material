@@ -8,17 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['post-list.component.css']
 })
 export class PostListComponent {
-  post = [{
-    title: 'firs Post', Content: 'this is my first post here get our hand dirty'
-  },
-  {
-    title: 'firs Post', Content: 'this is my first post here get our hand dirty'
-  },
-  {
-    title: 'firs Post', Content: 'this is my first post here get our hand dirty'
-  },
+  // posts = [{
+  //   title: 'firs Post', description: 'wooow', content: 'this is my first post here get our hand dirty'
+  // },
+  // {
+  //   title: 'firs Post', description: 'wooow', content: 'this is my first post here get our hand dirty'
+  // },
+  // {
+  //   title: 'firs Post', description: 'wooow', content: 'this is my first post here get our hand dirty'
+  // },
 
-  ];
-
+  // ];
+  posts = [];
 
 }

@@ -1,11 +1,17 @@
-<mat-expansion-panel class="mat-expansion">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      title
-    </mat-panel-title>
-    <mat-panel-description>
-      description
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  panel-content
-</mat-expansion-panel>
+<mat-accordion *ngIf="posts.length>0">
+
+  <mat-expansion-panel class="mat-expansion" *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{post['title']}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{post['description']}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    {{post['content']}}
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-2" *ngIf="posts.length<=0">
+  No post add it yet
+</p>
