@@ -31,12 +31,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api/post", (req, res, next) => {
+app.post("/api/posts", (req, res, next) => {
   const post = req.body;
   console.log(post);
   res.status(201).json({ message: "data added successfully" });
 });
-app.use("/api/posts", (req, res, next) => {
+
+app.get("/api/posts", (req, res, next) => {
   res.status(200).json({
     message: "posts fetched with success",
     posts,
