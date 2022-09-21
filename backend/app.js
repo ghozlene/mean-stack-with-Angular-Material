@@ -1,13 +1,13 @@
 const express = require("express");
-require("dotenv").config();
+
 const app = express();
 const bodyParser = require("body-parser");
 const Post = require("./models/post");
 const mongoose = require("mongoose");
-
+require("dotenv").config();
 mongoose
   .connect(
-    `mongodb+srv://achref:${process.env.PASSWORD}@cluster0.qr5d3fe.mongodb.net/?retryWrites=true&w=majority`
+    `mongodb+srv://achref:${process.env.MONGODB_PASSWORD}@cluster0.qr5d3fe.mongodb.net/node-angular?retryWrites=true&w=majority`
   )
   .then(() => {
     console.log("connect to Database");
@@ -50,7 +50,7 @@ app.post("/api/posts", (req, res, next) => {
     title: req.body.title,
     content: req.body.content,
   });
-  console.log(post);
+  post.save();
 
   res.status(201).json({ message: "data added successfully" });
 });
