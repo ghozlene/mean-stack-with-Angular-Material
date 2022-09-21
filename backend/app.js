@@ -24,9 +24,11 @@ app.post("/api/posts", (req, res, next) => {
     title: req.body.title,
     content: req.body.content,
   });
-  post.save();
-
-  res.status(201).json({ message: "data added successfully" });
+  post.save().then((ceatedPost) => {
+    res
+      .status(201)
+      .json({ message: "data added successfully", postId: ceatedPost._id });
+  });
 });
 
 app.get("/api/posts", (req, res, next) => {
