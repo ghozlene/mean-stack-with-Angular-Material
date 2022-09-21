@@ -1,7 +1,21 @@
 const express = require("express");
+require("dotenv").config();
 const app = express();
 const bodyParser = require("body-parser");
 const Post = require("./models/post");
+const mongoose = require("mongoose");
+
+mongoose
+  .connect(
+    `mongodb+srv://achref:${process.env.PASSWORD}@cluster0.qr5d3fe.mongodb.net/?retryWrites=true&w=majority`
+  )
+  .then(() => {
+    console.log("connect to Database");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 const posts = [
   {
     id: "f1a4ada2",
