@@ -9,7 +9,7 @@
     <div>
 
       <button mat-stroked-button type="button" (click)="filePicker.click()">pick Image</button>
-      <input hidden="true" type="file" #filePicker>
+      <input hidden="true" type="file" #filePicker (change)="onImagePicked($event)">
     </div>
     <mat-form-field>
       <textarea formControlName="content" placeholder="entred some Content please" class="fieldInput" matInput rows="6"
