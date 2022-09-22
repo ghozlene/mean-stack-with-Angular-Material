@@ -40,7 +40,10 @@ export class PostCreateComponent implements OnInit {
         this.mode = 'updatePost';
         this.postId = paramMap.get('postId');
 
-        this.post = this.postService.getSinglePost(this.postId);
+        this.postService.getSinglePost(this.postId).subscribe(postData => {
+          this.post = { id: postData._id, title: postData.title, content: postData.content };
+          console.log(this.post);
+        });
       } else {
         this.mode;
         this.postId = null;
