@@ -7,7 +7,11 @@
         [ngModel]="post?.title" required>
       <mat-error *ngIf="title.invalid">Please Enter post title</mat-error>
     </mat-form-field>
+    <div>
 
+      <button mat-stroked-button type="button" (click)="filePicker.click()">pick Image</button>
+      <input hidden="true" type="file" #filePicker>
+    </div>
     <mat-form-field>
       <textarea placeholder="entred some Content please" class="fieldInput" #content="ngModel" matInput rows="6"
         name="content" [ngModel]="post?.content" required></textarea>
