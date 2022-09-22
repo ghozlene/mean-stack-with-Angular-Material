@@ -6,3 +6,17 @@ mat-form-field,
 mat-spinner {
   margin: auto;
 }
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  height: 100%;
+  box-shadow: -1px 7px 19px 11px rgba(174, 139, 247, 0.77);
+  -webkit-box-shadow: -1px 7px 19px 11px rgba(174, 139, 247, 0.77);
+  -moz-box-shadow: -1px 7px 19px 11px rgba(174, 139, 247, 0.77);
+  padding: 0;
+  margin: 0;
+}
