@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Post } from "../post.model";
 import { PostService } from "../post.service";
 
 @Component({
@@ -7,12 +9,14 @@ import { PostService } from "../post.service";
   styleUrls: ['./post-create.component.css']
 
 })
-export class PostCreateComponent {
+export class PostCreateComponent implements OnInit {
   entredContent = '';
   entredTitle = '';
+  private mode = "create";
+  private postId: string;
+  post: Post;
 
-
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, private route: ActivatedRoute) {
 
   }
 
@@ -24,4 +28,21 @@ export class PostCreateComponent {
     this.postService.addPost(form.value.title, form.value.content);
     form.resetForm();
   }
+
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((paramMap) => {
+      if (paramMap.has('postId')) {
+        this.mode = 'updatePost';
+        this.postId = paramMap.get('postId');
+
+        this.post = this.postService.getSinglePost(this.postId);
+      } else {
+        this.mode;
+        this.postId = null;
+      }
+    });
+
+  }
+
 }
