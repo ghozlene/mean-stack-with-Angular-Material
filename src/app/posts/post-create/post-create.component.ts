@@ -20,13 +20,17 @@ export class PostCreateComponent implements OnInit {
 
   }
 
-  onAddPost(form) {
+  onSavePost(form) {
     if (form.invalid) {
       return;
-    }
+    } if (this.mode == 'create') {
+      this.postService.addPost(form.value.title, form.value.content);
 
-    this.postService.addPost(form.value.title, form.value.content);
+    } else {
+      this.postService.updatePost(this.postId, form.value.title, form.value.content);
+    }
     form.resetForm();
+
   }
 
 
