@@ -9,7 +9,13 @@
         {{post['description']}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    {{post['content']}}
+    <div class="postImage">
+      <img class="imageCover" [src]="post.imagePath" [alt]="post.title">
+    </div>
+    <div class="postContent">
+      {{post['content']}}
+    </div>
+
     <mat-action-row>
       <a mat-button [routerLink]="['/updatePost',post.id]" color="primary">Edit</a>
       <button mat-button color="warn" (click)="onDelete(post.id)">Delete</button>
